@@ -2,9 +2,14 @@
 
  :aliases
  {:nrepl
-  {:extra-deps {nrepl/nrepl         {:mvn/version "0.6.0"}
-                criterium/criterium {:mvn/version "0.4.5"}}
-   :main-opts  ["-e" "(require,'[criterium.core,:refer,[bench,quick-bench]]),(require,'[nrepl.server,:refer,[start-server]]),(set!,*print-length*,100),(start-server,:port,56565)"]}
+  {:extra-deps {nrepl/nrepl         {:mvn/version "0.8.3"}
+                criterium/criterium {:mvn/version "0.4.5"}
+                com.clojure-goes-fast/clj-async-profiler {:mvn/version "0.5.0"}}
+   :main-opts  ["-e" "(require,'[criterium.core,:refer,[bench,quick-bench]]),(require,'[clj-async-profiler.core,:as,prof]),(require,'[nrepl.server,:refer,[start-server]]),(set!,*print-length*,100),(start-server,:port,56565)"]}
+
+  :perf
+  {:extra-deps {com.clojure-goes-fast/clj-async-profiler {:mvn/version "0.5.0"}}
+   :main-opts  ["-e" "(require,'[clj-async-profiler.core,:as,prof])"]}
 
   :ion-dev
   {:extra-deps {com.datomic/ion-dev {:mvn/version "0.9.247"}}
